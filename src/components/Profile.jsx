@@ -145,8 +145,8 @@ const Profile = () => {
  
      <div className='flex flex-col tt:gap-0'>
      <div className='flex items-center gap-2 tt:relative tt:top-3'>
-      <h1 className='text-2xl xx:text-[17px] tt:text-xl font-bold tt:text-nowrap duration-200'>Christian Pretista Heje</h1>
-      <img className='w-6 h-6 ' src={Check} alt="" />
+      <h1 className='text-2xl xx:text-[17px] tt:text-xl font-bold tt:text-nowrap duration-200'>Christian Pretista Heje</h1> 
+      <img className='w-6 h-6' src={Check} alt="" />
     </div>
     <div className='flex items-center gap-1 tt:relative top-3'>
        <img className='w-4 h-4' src={location} alt="" />
