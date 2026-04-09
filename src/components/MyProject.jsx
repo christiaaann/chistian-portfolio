@@ -22,8 +22,8 @@ const MyProject = () => {
 
   return (
  <>
-<div className='min-h-screen overflow-hidden bg-black text-white'>
- <div className='p-24 mx-auto flex flex-col gap-10'>
+  <div className='min-h-screen overflow-hidden bg-black text-white'>
+  <div className='p-24 mx-auto flex flex-col gap-10'>
 
   <div className='flex items-center justify-start  gap-2'>
     <img className='w-5 h-5' src={back} alt="" />
@@ -35,7 +35,7 @@ const MyProject = () => {
     <div className='flex flex-col gap-2'>
       <div className='flex-grow group flex gap-2'>
        <div className='bg-neutral-900 p-2 rounded-lg group overflow-hidden border border-neutral-600 w-[30rem] h-[20rem] '>
-        <div className='flex flex-col h-[18rem] justify-end  p-5'>
+        <div className='flex flex-col h-[18rem] justify-end  p-5'> 
         <h1 className=' font-bold text-neutral-500 text-7xl'>I CREATE</h1>
          <h1 className=' font-bold text-neutral-500 text-7xl'>AWESOME</h1>
           <h1 className=' font-bold text-neutral-500 text-7xl'>UI</h1>
