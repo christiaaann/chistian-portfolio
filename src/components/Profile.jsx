@@ -1,5 +1,5 @@
 import React, { useRef,useEffect,useState } from 'react'
-import profile from '../assets/profile.png'
+import profile from '../assets/profile.jpg'
 import Check from '../assets/check.png'
 import Hand from '../assets/hand.png'
 import location from '../assets/location.png'
@@ -141,7 +141,7 @@ const Profile = () => {
   return (
   <>
    <div className='flex items-center gap-5'>
-     <img className='w-36 h-36 tt:w-36 tt:h-36 object-contain' src={profile} alt="" />
+     <img className='w-36 h-36 tt:w-36 tt:h-36 object-cover rounded-lg' src={profile} alt="" />
  
      <div className='flex flex-col tt:gap-0'>
      <div className='flex items-center gap-2 tt:relative tt:top-3'>
@@ -158,10 +158,10 @@ const Profile = () => {
       </div>
      </div>
        <div>
-        <p className='relative left-1 font-semibold text-green-500 animate-pulse'>Graduating...</p>
+        {/* <p className='relative left-1 font-semibold text-green-500 animate-pulse'>Graduating...</p> */}
        </div>
        <div className='flex gap-5'>
-       <p className='tt:relative xx:text-[18px] xx:top-3 top-2 text-[20px] font-manrope leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600 font-bold tt:text-lg tt:duration-200 text-nowrap'>Game Developer</p> 
+       {/* <p className='tt:relative xx:text-[18px] xx:top-3 top-2 text-[20px] font-manrope leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600 font-bold tt:text-lg tt:duration-200 text-nowrap'>Game Developer</p>  */}
       <a target='_blank'  href='https://docs.google.com/document/d/14q0y_qkJVN4aRrdD41YFinforR4oC-dPA4fR_OCH9dE/edit?usp=drive_link' className=' flex items-center relative tt:right-5 tt:top-2 duration-200 underline gap-1 px-3 h-7 font-semibold'><img className='w-5 h-5' src={Hand} alt="" />Resume</a>
         
         </div>
@@ -174,15 +174,15 @@ const Profile = () => {
     <div className='absolute w-full max-w-[250px] z-10 top-9 xx:right-16'>
      <div className='bg-neutral-950 max-w-[23rem] flex-grow relative border border-neutral-600 rounded-lg p-5'>
         <div className='flex items-center justify-center gap-2'>
-          <button onClick={() =>setshowcall(false)} className='absolute top-0 right-2 border border-neutral-600 mt-2 text-white rounded-full h-6 w-6 font-bold text-[15px]'>X</button>
+          <button onClick={() =>setshowcall(false)} className='absolute -top-5 -right-7 border border-neutral-600 bg-black mt-2 text-white rounded-full h-6 w-6 font-bold text-[15px]'>X</button>
         <h1 className='text-lg font-semibold'>Contact Number</h1>
         </div>
         <div className='flex justify-center'>
         <div className='flex flex-col max-w-[15rem] flex-grow relative p-2 justify-center'> 
        <h1 className='text-lg'><li className=' marker:animate-pulse marker:text-green-500'>09919107871</li></h1>
        <h1 className=' absolute top-1 right-0 text-[15px] mt-2 xx:hidden font-semibold'>DITO</h1>
-       <h1 className='text-lg'><li className='marker:text-green-500'>09626947248</li></h1>
-       <h1 className='absolute bottom-0 right-0 top-8 text-[13px] mt-2 h-6 xx:hidden font-semibold '>SMART</h1>
+       {/* <h1 className='text-lg'><li className='marker:text-green-500'>09626947248</li></h1>
+       <h1 className='absolute bottom-0 right-0 top-8 text-[13px] mt-2 h-6 xx:hidden font-semibold '>SMART</h1> */}
        </div>
        </div>
      </div>
@@ -193,7 +193,7 @@ const Profile = () => {
    {setEmail && !showsucess && (
    <div className='fixed inset-0 z-10 flex justify-center items-center '>
    <div className='bg-white relative flex flex-col gap-5 p-10 rounded-lg w-[30rem]'>
-    <button onClick={() => setshowEmail(false)} className='absolute text-black w-8 h-8 rounded-full font-bold bg-neutral-100 shadow-lg text-[15px] -right-2 -top-5 mt-2'>X</button>
+    <button onClick={() => setshowEmail(false)} className='absolute text-white w-8 h-8 rounded-full font-bold bg-red-600 shadow-lg text-[15px] -right-9 border -top-5 mt-2'>X</button>
     <div className='flex items-center justify-between'>
     <img className='w-12 h-12 drop-shadow-lg' src={email} alt="" />
     <div className='flex items-center'>

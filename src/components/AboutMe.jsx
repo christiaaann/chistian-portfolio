@@ -39,11 +39,11 @@ const AboutMe = () => {
          <h2 className='border px-5 rounded-md text-[15px]'>Figma</h2>
          <h2 className='border px-5 rounded-md text-[15px]'>Canva</h2>
         </div>
-                <h1 className='font-bold text-lg mt-1'>Game Engine</h1>
+                {/* <h1 className='font-bold text-lg mt-1'>Game Engine</h1>
         <div className='flex gap-2 mt-2'>
          <h2 className='border px-5 rounded-md text-[15px]'>Unreal Engine</h2>
           <h2 className='border px-5 rounded-md text-[15px]'>C++ / Blueprint</h2>
-        </div>
+        </div> */}
     </div>
     </div>
     </>
