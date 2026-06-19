@@ -32,7 +32,10 @@ const Experience = () => {
         {slider.length > 0 ? (
         <>
         <a target='_blank' href='https://myrtlechristianschool.com/'>
-        <img className='h-72' src={slider[current].imageUrl} alt="" />
+        <img 
+         className='h-72 rounded-md' 
+         src={slider[current].imageUrl} 
+         />
         </a>
         <button
          className='absolute top-44 -left-2 border border-white/50 backdrop-blur-xl w-10 h-10 rounded-full flex justify-center items-center'
@@ -48,17 +51,17 @@ const Experience = () => {
      ):(
        <span>No Project</span>    
     )}
-        <div className='p-3'>
+        {/* <div className='p-3'>
          <p className=' border p-2 rounded-lg border-neutral-700'>Implemented Google Authentication login using Firebase.</p> 
            <p className=' border p-2 rounded-lg border-neutral-700'>Added email notification system for application approval and rejection during enrollment.</p>  
              <p className=' border p-2 rounded-lg border-neutral-700'>Integrated database and handled system functionality using Firebase</p>   
-        {/* <li>Implemented Google Authentication login using Firebase.</li>
+        <li>Implemented Google Authentication login using Firebase.</li>
         <li>Developed frontend and backend features using React, Node.js, Tailwind CSS, and JavaScript.</li>
         <li>Integrated database and handled system functionality using Firebase.</li>
-        <li>Added email notification system for application approval and rejection during enrollment.</li> */}
-      </div>
+        <li>Added email notification system for application approval and rejection during enrollment.</li>
+      </div> */}
        <li className='text-lg relative left-5'>Rental System</li>
-       <img className=' border border-gray-500' src={rental} alt="" />
+       <img className=' border border-gray-500 ' src={rental} alt="" />
 
     </div>
     </div>
