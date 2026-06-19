@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import info from '../assets/info.png'
 import enrollment from '../assets/enrollment.png'
 import rental from '../assets/rental.png'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 const Experience = () => {
   
   const [slider, setSlider] = useState([
@@ -16,27 +17,45 @@ const Experience = () => {
    }, 3000);
    return () => clearInterval(interval);
   }, [slider]);
-
+  
+  const ref = useRef();
+  const [show, setShow] = useState(false);
+  
   return (
      <div className=' bg-neutral-950 border max-w-[20rem] pp:max-w-full border-neutral-700 p-2 rounded-lg'>
      <div className='flex gap-2 relative left-1 items-center'>
      <img className='w-5 h-5' src={info} alt="" />  
      <h1 className='text-xl font-bold'>Projec History</h1>
      </div>
-     <div className='flex flex-col gap-3 mt-2 text-[15px] text-justify p-1 '>
+     <div className='flex relative flex-col gap-3 mt-2 text-[15px] text-justify p-1 '>
        <li className='text-lg relative left-5'>Enrollment System <span className=' bg-red-600 text-white text-sm rounded-sm px-2'>Live</span></li>
         {slider.length > 0 ? (
+        <>
         <a target='_blank' href='https://myrtlechristianschool.com/'>
         <img className='h-72' src={slider[current].imageUrl} alt="" />
         </a>
-        ):(
+        <button
+         className='absolute top-44 -left-2 border border-white/50 backdrop-blur-xl w-10 h-10 rounded-full flex justify-center items-center'
+         >
+          <ChevronLeft/>
+          </button>
+        <button
+         className='absolute top-44 -right-2 border border-white/50 backdrop-blur-xl w-10 h-10 rounded-full flex justify-center items-center'
+         >
+          <ChevronRight/>
+          </button>
+      </>  
+     ):(
        <span>No Project</span>    
     )}
         <div className='p-3'>
-        <li>Implemented Google Authentication login using Firebase.</li>
+         <p className=' border p-2 rounded-lg border-neutral-700'>Implemented Google Authentication login using Firebase.</p> 
+           <p className=' border p-2 rounded-lg border-neutral-700'>Added email notification system for application approval and rejection during enrollment.</p>  
+             <p className=' border p-2 rounded-lg border-neutral-700'>Integrated database and handled system functionality using Firebase</p>   
+        {/* <li>Implemented Google Authentication login using Firebase.</li>
         <li>Developed frontend and backend features using React, Node.js, Tailwind CSS, and JavaScript.</li>
         <li>Integrated database and handled system functionality using Firebase.</li>
-        <li>Added email notification system for application approval and rejection during enrollment.</li>
+        <li>Added email notification system for application approval and rejection during enrollment.</li> */}
       </div>
        <li className='text-lg relative left-5'>Rental System</li>
        <img className=' border border-gray-500' src={rental} alt="" />

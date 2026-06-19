@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import sender from '../assets/sender.png'
 import emailjs from 'emailjs-com'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-
+import { Link } from 'react-router-dom'
 const Profile = () => {
    
     const navigate = useNavigate();
@@ -162,7 +162,15 @@ const Profile = () => {
        </div>
        <div className='flex gap-5'>
        {/* <p className='tt:relative xx:text-[18px] xx:top-3 top-2 text-[20px] font-manrope leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600 font-bold tt:text-lg tt:duration-200 text-nowrap'>Game Developer</p>  */}
-      <a target='_blank'  href='https://docs.google.com/document/d/14q0y_qkJVN4aRrdD41YFinforR4oC-dPA4fR_OCH9dE/edit?usp=drive_link' className=' flex items-center relative tt:right-5 tt:top-2 duration-200 underline gap-1 px-3 h-7 font-semibold'><img className='w-5 h-5' src={Hand} alt="" />Resume</a>
+      <Link
+       to="/resume"
+       target='_blank' 
+       className=' flex items-center relative tt:right-5 tt:top-2 duration-200 underline gap-1 px-3 h-7 font-semibold'
+       >
+      <img className='w-5 h-5' src={Hand} alt="" 
+      />
+      Resume
+      </Link>
         
         </div>
        <div className='flex items-start mt-2 gap-2 pp:flex-wrap relative tt:top-2' ref={dropdownRef}>
