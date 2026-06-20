@@ -5,8 +5,57 @@ const School = () => {
     <>
       <div className='flex pp:flex-wrap gap-2'>
         <div className='bg-neutral-950 p-5 max-w-[20rem] pp:max-w-[50rem]  flex-grow rounded-lg border border-neutral-700'>
-          <h1 className='font-semibold text-xl'>Motivation</h1>
-          <p className='mt-2'>You don't have to be perfect just keep learning stay consistent.</p>
+          <h1 className='font-semibold text-xl'>Contact Me</h1>
+        <div className='flex gap-2 justify-center'>
+        <div className=" mt-2 bg-neutral-900 w-16 h-16 p-2 flex justify-center items-center  border border-neutral-700 rounded-xl">
+         <a
+          href="" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className=" object-contain grayscale opacity-80  transition-all duration-300"
+        >
+          <img 
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" 
+            alt="Facebook logo" 
+            className="w-8 h-8 object-contain" 
+            loading="lazy"
+          />
+        </a>
+         </div>
+     
+     
+        <div className=" mt-2 bg-blue-600/5  w-16 h-16 p-2 flex justify-center items-center  border border-blue-500/5 rounded-xl">
+         <a
+          href="" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className=" group object-contain opacity-80  transition-all duration-300"
+        >
+          <img 
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+            alt="Linkind logo" 
+            className="w-8 h-8 grayscale group-hover:grayscale-0 object-contain transition-all duration-300" 
+            loading="lazy"
+          />
+        </a>
+         </div>
+        
+        {/* <div className=" mt-2 bg-neutral-900 w-16 h-16 p-2 flex justify-center items-center  border border-neutral-700 rounded-xl">
+         <a
+          href="" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className=" object-contain grayscale opacity-80  transition-all duration-300"
+        >
+          <img 
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons//javascript-original.svg" 
+            alt="Facebook logo" 
+            className="w-8 h-8 object-contain" 
+            loading="lazy"
+          />
+        </a>
+         </div> */}
+        </div>
         </div>
           
           {/* school */}

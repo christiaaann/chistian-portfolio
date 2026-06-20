@@ -5,7 +5,7 @@ const AboutMe = () => {
   const techs = [
     { 
       name: "React", 
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", // Pwede ring URL muna habang wala ka pang file
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
       color: "text-sky-400 border-sky-500/20 bg-sky-500/5" 
     },
     { 
@@ -46,8 +46,8 @@ const AboutMe = () => {
   return (
     <>
     
-    <div className='flex flex-col gap-2 '>
-    <div className='bg-neutral-950 border border-neutral-700 p-5 rounded-lg max-w-[35rem] pp:max-w-full'>
+    <div className='flex flex-col w-[30rem] pp:w-full gap-2 '>
+    <div className='bg-neutral-950 border border-neutral-700 p-5 rounded-lg'>
      <div className='flex items-center gap-2'>
       <img className='w-5 h-5' src={info} alt="" />  
      <h1 className='text-xl font-bold'>About</h1>
@@ -60,9 +60,9 @@ const AboutMe = () => {
  
     </div>
     {/* tech stack */}
-    <div className=' w-[33rem]  bg-neutral-950 h-full border border-neutral-700 p-5 rounded-lg'>
+    <div className=' bg-neutral-950 border border-neutral-700 p-5 rounded-lg'>
      <h1 className='font-bold'>Techstack</h1> 
-    <div className='flex justify-cente h-28 items-center'>
+    <div className='flex justify-center h-28 items-center'>
         <style>{`
       @keyframes marquee {
         0% { transform: translateX(0%); }
@@ -79,7 +79,7 @@ const AboutMe = () => {
     `}</style>
      
 
-      <div className="flex overflow-hidden relative  hover:pause-marquee select-none cursor-pointer">
+      <div className="flex overflow-hidden  relative  hover:pause-marquee select-none cursor-pointer">
       
         {/* The Marquee Row */}
         <div

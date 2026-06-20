@@ -22,10 +22,10 @@ const Experience = () => {
   const [show, setShow] = useState(false);
   
   return (
-     <div className=' bg-neutral-950 border max-w-[20rem] pp:max-w-full border-neutral-700 p-2 rounded-lg'>
+     <div className=' bg-neutral-950  border border-neutral-700 p-2 rounded-lg'>
      <div className='flex gap-2 relative left-1 items-center'>
      <img className='w-5 h-5' src={info} alt="" />  
-     <h1 className='text-xl font-bold'>Projec History</h1>
+     <h1 className='text-xl font-bold'>Project History</h1>
      </div>
      <div className='flex relative flex-col gap-3 mt-2 text-[15px] text-justify p-1 '>
        <li className='text-lg relative left-5'>Enrollment System <span className=' bg-red-600 text-white text-sm rounded-sm px-2'>Live</span></li>
