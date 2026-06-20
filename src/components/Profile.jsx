@@ -178,7 +178,7 @@ const Profile = () => {
          <img className='w-4 h-4 absolute left-3 tt:w-4 tt:h-4 animate-pulse' src={call} alt="" />
           Contact Me</button>
          
-        { setcall && (
+    { setcall && (
     <div className='absolute w-full max-w-[250px] z-10 top-9 xx:right-16'>
      <div className='bg-neutral-950 max-w-[23rem] flex-grow relative border border-neutral-600 rounded-lg p-5'>
         <div className='flex items-center justify-center gap-2'>

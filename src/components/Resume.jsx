@@ -14,14 +14,14 @@ const handlePrint = () => {
   }
 };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center p-4 lg:p-12 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex  items-center justify-center p-4 lg:p-12 relative overflow-hidden">
       
       {/* Ambient Background Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Main Grid Wrapper */}
-      <div className="w-full justify-evenly flex gap-2">
+      <div className="w-full justify-evenly flex pp:flex-col items-center gap-2">
         
         {/* LEFT COLUMN: Landing Info & Download Action (40% Width sa Desktop) */}
         <div className="lg:col-span-5 flex flex-col justify-center space-y-6 text-center lg:text-left px-4">
@@ -63,7 +63,7 @@ const handlePrint = () => {
         </div>
 
         {/* RIGHT COLUMN: Interactive Document Viewer (60% Width sa Desktop) */}
-        <div className="w-[50rem] ">
+        <div className="w-[50rem] pp:w-full ">
           <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-3 md:p-4 shadow-2xl relative group transition-all duration-300 hover:border-slate-700/60">
             
             {/* Top Window Bar Mac-style dots para maging mukhang modern dashboard component */}
