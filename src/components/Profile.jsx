@@ -11,6 +11,7 @@ import sender from '../assets/sender.png'
 import emailjs from 'emailjs-com'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { Link } from 'react-router-dom'
+import goProject from './MyProject'
 const Profile = () => {
    
     const navigate = useNavigate();
@@ -178,7 +179,7 @@ const Profile = () => {
          <img className='w-4 h-4 absolute left-3 tt:w-4 tt:h-4 animate-pulse' src={call} alt="" />
           Contact Me</button>
          
-    { setcall && (
+     {setcall && (
     <div className='absolute w-full max-w-[250px] z-10 top-9 xx:right-16'>
      <div className='bg-neutral-950 max-w-[23rem] flex-grow relative border border-neutral-600 rounded-lg p-5'>
         <div className='flex items-center justify-center gap-2'>
@@ -253,7 +254,7 @@ const Profile = () => {
    <div class="grid flex-grow gap-8">
     <div class="relative grid group">
       <div class="absolute  -inset-0.5 animate-pulse bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-      <button onClick="" class="relative pp:justify-center tt:px-1 px-8 py-1 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
+      <button onClick={goProject} class="relative pp:justify-center tt:px-1 px-8 py-1 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
         <span class="flex items-center space-x-5">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-600 -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />

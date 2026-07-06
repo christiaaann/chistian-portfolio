@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import info from '../assets/info.png'
+import { Globe } from 'lucide-react';
 const AboutMe = () => {
 
   const techs = [
@@ -47,16 +48,17 @@ const AboutMe = () => {
     <>
     
     <div className='flex flex-col w-[30rem] pp:w-full gap-2 '>
-    <div className='bg-neutral-950 border border-neutral-700 p-5 rounded-lg'>
+    <div className='bg-neutral-950 h-full border border-neutral-700 relative p-5 rounded-lg'>
      <div className='flex items-center gap-2'>
       <img className='w-5 h-5' src={info} alt="" />  
-     <h1 className='text-xl font-bold'>About</h1>
+     <h1 className='text-xl font-bold'>Work Experience</h1>
     </div>
-     <div className='flex flex-col gap-5 mt-3 text-[15px] text-justify'>
-      <p>I am a recent Information Technology graduate with experience in web development and basic IT support gained through academic projects and internship. I have worked on building systems that involve user interfaces, database management, and basic system functionality.</p>
-       <p>During my internship and projects, I worked with structured data using CRUD operations for managing records such as users, students, enrollments, and payments. I also gained experience in troubleshooting basic hardware and software issues, as well as installing and configuring operating systems and applications.</p>
-       <p>I am eager to continue learning and improving my technical skills in web development, database handling, and IT-related work. I am open to opportunities where I can contribute, grow, and gain more practical experience in a professional environment.</p>
+     <div className='flex justify-between mt-3 text-[15px] text-justify'>
+      <div><h1 className='text-lg'>IT Intern</h1>
+      <a target='_blank' className='text-green-200 flex items-center text-nowrap gap-2' href="https://www.aimbletech.com/"><span><Globe/></span>Aimble IT Solutions - Irosin Sorsogon</a></div>
+      <p className='bg-neutral-90 absolute flex items-center right-5 text-neutral-400 text-nowrap text-sm px-4 h-8 rounded-full border border-neutral-800'> Jan 26 – Apr 24, 2026 - Present</p>
      </div>
+     
  
     </div>
     {/* tech stack */}
@@ -69,10 +71,9 @@ const AboutMe = () => {
         100% { transform: translateX(-50%); }
       }
       .animate-marquee {
-        animation: marquee 30s linear infinite;
+        animation: marquee 50s linear infinite;
         animation-play-state: ${isPaused ? 'paused' : 'running'};
       }
-      /* Preno: Humihinto ang tren kapag tinapatan ng mouse (hover) */
       .hover\:pause-marquee:hover .animate-marquee {
         animation-play-state: paused;
       }
