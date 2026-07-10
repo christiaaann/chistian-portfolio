@@ -1,118 +1,84 @@
-import React, { useRef,useEffect,useState } from 'react'
-import profile from '../assets/profile.jpg'
-import Check from '../assets/check.png'
-import Hand from '../assets/hand.png'
-import location from '../assets/location.png'
+import React, { useRef, useEffect, useState } from 'react'
 import call from '../assets/call.svg'
 import email from '../assets/email.png'
-// import useOnlineStatus from '../Hook/useOnlineStatus'
-import { useNavigate } from 'react-router-dom'
 import sender from '../assets/sender.png'
 import emailjs from 'emailjs-com'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-import { Link } from 'react-router-dom'
-import goProject from './MyProject'
-const Profile = () => {
-   
-    const navigate = useNavigate();
-    const [setEmail, setshowEmail] = useState(false);
-    // const isOnline = useOnlineStatus();
-    
-    // validation alert
-    const [showsucess, setshowsucess] = useState(false);
-    const [showNameAlert, setshowNameAlert] = useState(false);
-    const [showemail, setshowemail] = useState(false);
-    const [showSubject, setshowSubject] = useState(false);
-    const [showMessage, setShowMessage] = useState(false);
+import { useNavigate } from 'react-router-dom'
+import { BiLogoVisualStudio } from 'react-icons/bi'
+import { FiFigma } from 'react-icons/fi'
+import { BsGithub, BsJavascript } from 'react-icons/bs'
 
-    
-    const [form, setForm] = useState({
+import ServicesModal from './ServicesModal'
+import NavigationBar from './NavigationBar'
+const Profile = () => {
+
+  const navigate = useNavigate();
+  const [showEmailModal, setShowEmailModal] = useState(false);
+  const [showCallDropdown, setShowCallDropdown] = useState(false);
+  const [ismodalOpen, setIsModalOpen] = useState(false);
+  // Validation states
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showNameAlert, setShowNameAlert] = useState(false);
+  const [showEmailAlert, setShowEmailAlert] = useState(false);
+  const [showSubjectAlert, setShowSubjectAlert] = useState(false);
+
+  const [form, setForm] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
 
-   const handleExit = () =>{
-    setForm({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-    });
-    setshowemail(false);
-    setshowNameAlert(false);
-    setshowSubject(false);
-   }
-    
+  const dropdownRef = useRef(null);
+
+  const handleExit = () => {
+    setForm({ name: "", email: "", subject: "", message: "" });
+    setShowEmailAlert(false);
+    setShowNameAlert(false);
+    setShowSubjectAlert(false);
+  };
+
   const goProject = () => {
     navigate("/goProject");
-    };
-
-    // server side
-    const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
   };
- 
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    //  validation
-   const { name, email, subject, message } = form;
+    const { name, email, subject, message } = form;
 
-  if (!name.trim() && !email.trim() && !subject.trim() && !message.trim()) {
-    alert("Please fill in all fields before sending.");
-    return;
-  }
-
-
-  if (!name.trim()) {
-    setshowNameAlert(true);
-    return;
-  }
-  setshowNameAlert(false);
-  
-  if (!email.trim()) {
-    setshowemail(true);
-    return;
-  }else{
-    const gmailRegex =  /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    if (!gmailRegex.test(email)){
-      setshowemail(true);
+    if (!name.trim() && !email.trim() && !subject.trim() && !message.trim()) {
+      alert("Please fill in all fields before sending.");
       return;
     }
-  } setshowemail(false);
-  
-  if (!subject.trim()) {
-    setshowSubject(true);
-    return;
-  }
-  if (!message.trim()) {
-    alert("Please input a message.");
-    return;
-  }
+
+    if (!name.trim()) return setShowNameAlert(true);
+    setShowNameAlert(false);
+
+    if (!email.trim()) return setShowEmailAlert(true);
+    const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!gmailRegex.test(email)) return setShowEmailAlert(true);
+    setShowEmailAlert(false);
+
+    if (!subject.trim()) return setShowSubjectAlert(true);
+    if (!message.trim()) return alert("Please input a message.");
 
     emailjs
-      .send(
-        "service_s965vmk",   
-        "template_u38q2zc", 
-        {
-          from_name: form.name,
-          from_email: form.email,
-          subject: form.subject,
-          message: form.message,
-        },
-        "GMbcr1GcvW5jFeN4H"   
-      )
+      .send("service_s965vmk", "template_u38q2zc", {
+        from_name: form.name,
+        from_email: form.email,
+        subject: form.subject,
+        message: form.message,
+      }, "GMbcr1GcvW5jFeN4H")
       .then(
-        (result) => {
-          // alert("✅ Message sent successfully!");
-          // console.log(result.text);
-          setshowEmail(false);
-          setshowsucess(true);
-          
+        () => {
+          setShowEmailModal(false);
+          setShowSuccess(true);
+          handleExit();
         },
         (error) => {
           alert("❌ Failed to send message.");
@@ -121,155 +87,236 @@ const Profile = () => {
       );
   };
 
-  
-   
-  // dropdown menu
-  const [setcall, setshowcall] = useState(false);
-  const dropdownRef = useRef(null);
-  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setshowcall(false);
+        setShowCallDropdown(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-
   return (
-  <>
-   <div className='flex items-center gap-5'>
-     <img className='w-36 h-36 tt:w-36 tt:h-36 object-cover rounded-lg' src={profile} alt="" />
- 
-     <div className='flex flex-col tt:gap-0'>
-     <div className='flex items-center gap-2 tt:relative tt:top-3'>
-      <h1 className='text-2xl xx:text-[17px] tt:text-xl font-bold tt:text-nowrap duration-200'>Christian Pretista Heje</h1> 
-      <img className='w-6 h-6' src={Check} alt="" />
-    </div>
-    <div className='flex items-center gap-1 tt:relative top-3'>
-       <img className='w-4 h-4' src={location} alt="" />
-       <p className=' xx:text-[15px] ss:text-[12px]'>Irosin, Sorsogon</p>
-        
-       {/* user if active */}
-      <div className='flex gap-1 items-center xx:left-2  relative left-10'>
-        {/* <h1 className=' xx:text-[15px] ss:text-[12px] text-[15px]'>Status : {isOnline ? 'Online' : 'Offline'}</h1> */}
-      </div>
-     </div>
-       <div>
-        {/* <p className='relative left-1 font-semibold text-green-500 animate-pulse'>Graduating...</p> */}
-       </div>
-       <div className='flex gap-5'>
-       {/* <p className='tt:relative xx:text-[18px] xx:top-3 top-2 text-[20px] font-manrope leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600 font-bold tt:text-lg tt:duration-200 text-nowrap'>Game Developer</p>  */}
-      <Link
-       to="/resume"
-       target='_blank' 
-       className=' flex items-center relative tt:right-5 tt:top-2 duration-200 underline gap-1 px-3 h-7 font-semibold'
-       >
-      <img className='w-5 h-5' src={Hand} alt="" 
-      />
-      Resume
-      </Link>
-        
-        </div>
-       <div className='flex items-start mt-2 gap-2 pp:flex-wrap relative tt:top-2' ref={dropdownRef}>
-         <button onClick={() => setshowcall((prev) => !prev)} className='bg-white relative rounded-lg  xx:flex-grow xx:max-w-[12rem] font-semibold text-black px-8 tt:px-9 py-1 text-[12px] transition-transform duration-200 hover:-translate-y-1'>
-         <img className='w-4 h-4 absolute left-3 tt:w-4 tt:h-4 animate-pulse' src={call} alt="" />
-          Contact Me</button>
-         
-     {setcall && (
-    <div className='absolute w-full max-w-[250px] z-10 top-9 xx:right-16'>
-     <div className='bg-neutral-950 max-w-[23rem] flex-grow relative border border-neutral-600 rounded-lg p-5'>
-        <div className='flex items-center justify-center gap-2'>
-          <button onClick={() =>setshowcall(false)} className='absolute -top-5 -right-7 border border-neutral-600 bg-black mt-2 text-white rounded-full h-6 w-6 font-bold text-[15px]'>X</button>
-        <h1 className='text-lg font-semibold'>Contact Number</h1>
-        </div>
-        <div className='flex justify-center'>
-        <div className='flex flex-col max-w-[15rem] flex-grow relative p-2 justify-center'> 
-       <h1 className='text-lg'><li className=' marker:animate-pulse marker:text-green-500'>09919107871</li></h1>
-       <h1 className=' absolute top-1 right-0 text-[15px] mt-2 xx:hidden font-semibold'>DITO</h1>
-       {/* <h1 className='text-lg'><li className='marker:text-green-500'>09626947248</li></h1>
-       <h1 className='absolute bottom-0 right-0 top-8 text-[13px] mt-2 h-6 xx:hidden font-semibold '>SMART</h1> */}
-       </div>
-       </div>
-     </div>
-   </div>  
-   )}
+    <div className="min-h-screen flex flex-col justify-between bg-[#f8fafc] text-[#090d16] font-sans overflow-x-hidden relative selection:bg-blue-500/20">
+      
+      {/* 1. GRID BACKGROUND & LALONG PINALAKING BLUE BLUR AURA */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_40%,#000_65%,transparent_100%)] z-0 pointer-events-none" />
+      
+      {/* Soft Giant Glowing Orbs */}
+      <div className="absolute top-[15%] left-[5%] w-[650px] h-[650px] bg-blue-300/25 rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="absolute top-[10%] right-[0%] w-[700px] h-[700px] bg-sky-200/35 rounded-full blur-[160px] pointer-events-none z-0" />
+      
 
-   {/* Send Email */}
-   {setEmail && !showsucess && (
-   <div className='fixed inset-0 z-10 flex justify-center items-center '>
-   <div className='bg-white relative flex flex-col gap-5 p-10 rounded-lg w-[30rem]'>
-    <button onClick={() => setshowEmail(false)} className='absolute text-white w-8 h-8 rounded-full font-bold bg-red-600 shadow-lg text-[15px] -right-9 border -top-5 mt-2'>X</button>
-    <div className='flex items-center justify-between'>
-    <img className='w-12 h-12 drop-shadow-lg' src={email} alt="" />
-    <div className='flex items-center'>
-    <img className='w-5 h-5' src={sender} alt="" />
-    <p className='text-neutral-500 font-semibold text-[14px] '>christianpretistaheje@gmail.com</p>
-   </div>
-    </div>
-
-    {/* input */}
-    <input className='border-b outline-none relative text-sm pb-1 text-gray-400' type="name" name="name" value={form.name} onChange={handleChange} required id="" placeholder='Your Name' />
-    { showNameAlert && <h1 className='text-red-600 font-medium text-[14px]'>Please input Your Name!</h1>}
-    <input className='border-b  outline-none text-sm pb-1 text-gray-400' type="email" name="email" value={form.email} onChange={handleChange} required id="" placeholder='Email' />
-     { showemail && <p className='text-red-600 text-sm font-medium'>Please input a valid Gmail address!</p> }
-    <div className='border-b border-gray-300'>
-     <textarea rows={2} className=' resize-none outline-none border-none text-sm w-full text-gray-400 ' name='subject' value={form.subject} onChange={handleChange} required  placeholder='Subject'/>
-    </div>
-    { showSubject && <p className='text-red-600 font-medium text-sm'>Filled this required</p>}
+      {/*Navigation Bar  */}
+     <NavigationBar
+     goProject={goProject}
+     setShowEmailModal={() => setShowEmailModal(true)}    
+     />
+     
+      {/* 3. HERO BODY WITH MONUMENTAL TYPOGRAPHY */}
+    <section className="relative flex justify-center z-10 max-w-7xl mx-auto w-full text-center px-4">
+        
+{/* Floating Crystals */}
+<div>
   
 
-    {/* message */}
-    <div className=''>
-     <textarea rows={5} className=' border-none outline-none resize-none px-2 py-7 rounded-lg text-sm w-full bg-gray-200 text-gray-600 ' name='message' value={form.message} onChange={handleChange} placeholder='Type message here!'/>
-    </div>
-    <div className='flex justify-between'>
-      <button onClick={handleExit} className='text-black/80 font-semibold'>Clear</button>
-    <button type='button' onClick={handleSubmit} className='bg-black px-10 py-2 rounded-full font-semibold'>Send</button>
-    </div>
-   </div>
-   </div>
-)}
-{/* alert message for email sent */}
-{showsucess && (
-<div className='fixed inset-0 flex justify-center items-center'>
-  <div className='bg-white p-5 relative rounded-lg w-[25rem]'>
-   <h1 className='text-green-600 font-medium text-2xl text-center'>Email Sent</h1>
-   <div className='flex flex-col justify-center items-center mt-5'>
-     <DotLottieReact
-      src="https://lottie.host/d06ee668-4615-472e-adfe-8b39ca67feb8/3ebttVGrf1.lottie"
-      loop={false} 
-      autoplay
-      className='w-48 h-48'
-    />
-    <button onClick={() =>setshowsucess(false)} className='text-white px-6 py-2 rounded-full bg-blue-600'>Thank You</button>
-    </div>
+<div
+  className="absolute left-4 top-[35%] p-5 bg-gradient-to-br from-white/[0.12] to-white/[0.01] rounded-2xl border-t border-l border-white/30 border-b border-r border-white/10 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] shadow-blue-950/20 flex items-center justify-center animate-bounce"
+  style={{ animationDuration: "4s" }}
+>
+  {/* Glass Reflection Highlight Overlay */}
+  <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent pointer-events-none" />
+  
+  {/* Icon na may Neon Glow effect sa salamin */}
+  <BiLogoVisualStudio className="text-6xl text-blue-500 drop-shadow-[0_0_20px_rgba(59,130,246,0.65)] relative z-10" />
+</div>
+  <div className=" animate-bounce absolute right-8 top-[18%] w-20 h-20 bg-gradient-to-br from-white/[0.12] to-white/[0.01] rounded-xl border-t border-l border-white/30 border-b border-r border-white/10 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] shadow-indigo-950/20 flex items-center justify-center -rotate-12" 
+  style={{ animationDuration: '3s' }}>
+  {/* Glass Reflection Highlight Overlay */}
+  <div className="absolute inset-0 rounded-x bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent pointer-events-none"
+  />
+  
+  {/* Figma Icon na may Neon Glass Glow */}
+  <FiFigma className="text-4xl text-[#F24E1E] drop-shadow-[0_0_15px_rgba(242,78,30,0.5)] relative z-10" />
+</div>
+<div className="block absolute right-20 bottom-[25%] w-16 h-16 bg-gradient-to-br from-white/[0.12] to-white/[0.01] rounded-lg border-t border-l border-white/30 border-b border-r border-white/10 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] shadow-slate-950/20 flex items-center justify-center animate-bounce" style={{ animationDuration: '5s' }}>
+  {/* Glass Reflection Highlight Overlay */}
+  <div className="absolute inset-0 rounded-lg bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent pointer-events-none" />
+  
+  {/* JavaScript Icon - May itim na background shadow para lumabas ang hugis kahit transparent ang salamin */}
+  <div className="relative w-9 h-9 bg-[#000000] rounded flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(247,223,30,0.4)]">
+    <BsJavascript className="text-4xl text-[#f7df1e] absolute scale-[1.15] translate-y-[2px] translate-x-[1px]" />
   </div>
 </div>
-)}
-    <button onClick={() =>setshowEmail(true)} className=' border border-neutral-600 px-8 tt:px-9 pp:px-8 py-1 rounded-lg font-semibold text-[12px] xx:max-w-[12rem] transition-transform duration-200 hover:-translate-y-1 xx:flex-grow '>Send Email</button>
-   <div class="grid flex-grow gap-8">
-    <div class="relative grid group">
-      <div class="absolute  -inset-0.5 animate-pulse bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-      <button onClick={goProject} class="relative pp:justify-center tt:px-1 px-8 py-1 bg-black rounded-lg leading-none flex items-center divide-x divide-gray-600">
-        <span class="flex items-center space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-600 -rotate-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-          </svg>
-          <span class="pr-2 text-gray-100 text-[14px] tt:text-[12px] text-nowrap">View MyProject</span>
-        </span>
-        <span class="pl-5 text-indigo-400 text-[14px] tt:text-[12px] group-hover:text-gray-100 transition duration-200">All &rarr;</span>
-      </button>
+
+<div className="absolute left-[80%] top-[3%] p-5 bg-gradient-to-br from-white/[0.12] to-white/[0.01] rounded-2xl border-t border-l border-white/30 border-b border-r border-white/10 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] shadow-blue-500/10 flex items-center justify-center animate-bounce" style={{ animationDuration: "4s" }}>
+  <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-transparent via-white/[0.08] to-transparent pointer-events-none" />
+  
+  {/* Calendar / Organization Icon */}
+  <BsGithub className="text-6xl text-black drop-shadow-[0_0_15px_rgba(37,99,235,0.65)] relative z-10" />
+</div>
+  <div className="flex items-center justify-center w-full px-4">
+  {/* HIGANTENG TEXT LAYOUT */}
+  <h1 className="text-[12rem] pp:text-[5.5rem] tt:text-[5rem] xx:text-[4rem] ss:text-[3.2rem] font-[1000] tracking-tighter text-[#0f172a] pp:leading-[6rem] leading-[0.85] uppercase select-none font-sans w-full text-center pp:text-left flex flex-col">
+    
+    {/* DESIGN */}
+    <span className="bg-gradient-to-r relative right-56 pp:right-20 from-black to-blue-400 bg-clip-text text-transparent transition-all duration-300">
+      DESIGN
+    </span>
+    
+    {/* BUILD */}
+    <span className="bg-gradient-to-r from-[#2563eb] via-[#1d4ed8] to-[#3b82f6] bg-clip-text text-transparent pp:pl-4 transition-all duration-300">
+      BUILD
+    </span>
+    
+    {/* CREATE */}
+    <span className="relative left-48 pp:left-20 pp:text-right pp:w-full transition-all duration-300">
+      CREATE
+    </span>
+    
+  </h1> 
+</div>
+
+        {/* Action Controls */}
+        <div 
+          className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-8 w-full relative" ref={dropdownRef}>
+          {/* Solid Blue Button */}
+          <button
+                       
+            onClick={() => setIsModalOpen(true)}
+            style={{ animationDuration: '5s' }}
+            className="px-8 absolut animate-bounce py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-extrabold text-sm rounded-full hover:opacity-95 transition flex items-center gap-2 shadow-xl shadow-blue-600/25 group"
+      
+          >
+            <span>Start a Project</span>
+          </button>
+
+          <ServicesModal
+          isOpen={ismodalOpen}
+          onClose={() =>setIsModalOpen(false)}
+          />
+
+          {/* Contact Dropdown Card */}
+          {showCallDropdown && (
+            <div className="absolute top-full mt-3 z-30 w-full max-w-xs bg-white border border-gray-200 rounded-2xl p-4 shadow-xl text-left animate-in fade-in slide-in-from-top-2 duration-150">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1">Direct Line</span>
+              <div className="flex items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-100">
+                <span className="text-sm font-mono font-bold text-neutral-900 select-all">09919107871</span>
+                <span className="text-[9px] font-extrabold tracking-widest text-blue-600 px-2 py-0.5 bg-blue-50 rounded">DITO</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Scroll Indicator */}
+        {/* <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-50 select-none">
+          <span className="text-[10px] uppercase tracking-[0.2em] font-extrabold text-neutral-400">&darr; Scroll</span>
+        </div> */}
+
     </div>
-  </div>
-       </div>
+      </section>
+
+      <section>
+                 {/* 4. INFINITE MARQUEE RUNNING TEXT BANNER */}
+      <div className="w-full bg-white border-y border-black/20 py-5 overflow-hidden relative z-20 flex select-none">
+        
+        {/* Isang solong DIV wrapper na gumagamit ng array repetition para sa seamless flow */}
+        <div className="flex gap-12 animate-marquee whitespace-nowrap text-4xl font-semibold uppercase tracking-wider text-[#0f172a] w-max flex-shrink-0 pr-12">
+          {[...Array(4)].map((_, i) => (
+            <React.Fragment key={i}>
+              <span className="flex items-center gap-3">Web Development <span className="text-blue-600 text-lg">•</span></span>
+              <span className="flex items-center gap-3">Database & Architecture<span className="text-blue-600 text-lg">•</span></span>
+              <span className="flex items-center gap-3">UI/UX<span className="text-blue-600 text-lg">•</span></span>
+              <span className="flex items-center gap-3">Video Editing <span className="text-blue-600 text-lg">•</span></span>
+              <span className="flex items-center gap-3">Virtual Assistance <span className="text-blue-600 text-lg">•</span></span>
+            </React.Fragment>
+          ))}
+        </div>
+
+      </div>
+      </section>
+
+      {/* EMAIL OVERLAY & MODAL */}
+      {showEmailModal && !showSuccess && (
+        <div
+        
+         className="fixed inset-0 z-50 flex justify-center items-center p-4 bg-neutral-950/20">
+          <div 
+          className="bg-white border border-gray-200 relative flex flex-col gap-5 p-6 sm:p-8 rounded-2xl w-full max-w-lg shadow-2xl">  
+            <button onClick={() => setShowEmailModal(false)} className="absolute top-5 right-5 text-gray-400 hover:text-black">✕</button>
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-gray-50 border border-gray-100 rounded-xl"><img className="w-5 h-5" src={email} alt="" /></div>
+              <div>
+                <h3 className="text-neutral-950 font-bold text-base">Get In Touch</h3>
+                <p className="text-xs text-gray-500 flex items-center gap-1"><img className="w-3 h-3" src={sender} alt="" /> christianpretistaheje@gmail.com</p>
+              </div>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <div className='flex gap-2'>
+               <div className='w-full'>
+              <input 
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-neutral-900 outline-none focus:border-blue-500 transition" 
+                type="text" 
+                name="name" 
+                value={form.name} 
+                onChange={handleChange} 
+                placeholder="Your Name" />
+                 {showNameAlert && <p className="text-red-500 mt-1 relative left-1 text-xs">Name is required.</p>}
+              </div>
+               
+
+            <div className='w-full'>
+             <input className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-neutral-900 outline-none focus:border-blue-500 transition" 
+                type="email" 
+                name="email" 
+                value={form.email} 
+                onChange={handleChange} 
+                placeholder="Email Address" />
+                 {showEmailAlert && <p className="text-red-500 text-xs">Valid Gmail required.</p>}                      
+               </div>
+              </div>
+
+             
+              <input 
+                className="w-full mt-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-neutral-900 outline-none focus:border-blue-500 transition"
+                type="text" 
+                name="subject" 
+                value={form.subject} 
+                onChange={handleChange} 
+                placeholder="Subject" 
+                />
+               {showSubjectAlert && <p className="text-red-500 text-xs">Subject is required.</p>}
+              
+              <textarea 
+                rows={4} 
+                className="w-full mt-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-neutral-900 outline-none focus:border-blue-500 transition resize-none" 
+                name="message" 
+                value={form.message} 
+                onChange={handleChange} 
+                placeholder="Message Details..." 
+                />
+              <button 
+                type="submit" 
+                className="w-full bg-neutral-950 text-white py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-neutral-800 transition"
+              >
+                Send
+             </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showSuccess && (
+        <div className="fixed inset-0 z-50 flex justify-center items-center p-4 bg-neutral-950/20 backdrop-blur-md">
+          <div className="bg-white border border-gray-100 p-8 rounded-2xl w-full max-w-sm shadow-2xl text-center flex flex-col items-center">
+            <h1 className="text-xl font-black text-neutral-950">Message Sent!</h1>
+            <DotLottieReact src="https://lottie.host/d06ee668-4615-472e-adfe-8b39ca67feb8/3ebttVGrf1.lottie" loop={false} autoplay className="w-32 h-32" />
+            <button onClick={() => setShowSuccess(false)} className="w-full bg-gray-100 text-neutral-900 py-2.5 rounded-xl text-xs font-bold uppercase transition">Close</button>
+          </div>
+        </div>
+      )}
     </div>
-   </div>
-   
-  </>
   )
 }
 

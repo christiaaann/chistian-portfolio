@@ -42,13 +42,13 @@ const Home = () => {
         </div>
       </div>
 )}
-     <div className='p-6 max-w-4xl mx-auto flex flex-col gap-2'>
+     <div className=''>
        <Profile/>
        <div className='flex gap-2 pp:flex-wrap mt-3'>
-        <AboutMe/>
-        <Experience/> 
+        {/* <AboutMe/>
+        <Experience/>  */}
        </div>
-      <School/>
+      {/* <School/> */}
      </div>
    </div>
    </>
