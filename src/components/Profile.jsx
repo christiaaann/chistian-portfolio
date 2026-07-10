@@ -158,7 +158,7 @@ const Profile = () => {
 </div>
   <div className="flex items-center justify-center w-full px-4">
   {/* HIGANTENG TEXT LAYOUT */}
-  <h1 className="text-[12rem] pp:text-[5.5rem] tt:text-[5rem] xx:text-[4rem] ss:text-[3.2rem] font-[1000] tracking-tighter text-[#0f172a] pp:leading-[6rem] leading-[0.85] uppercase select-none font-sans w-full text-center pp:text-left flex flex-col">
+  <h1 className="text-[12rem] pp:text-[6.5rem] tt:text-[5rem] xx:text-[4rem] ss:text-[4.2rem] font-[1000] tracking-tighter text-[#0f172a] pp:leading-[6rem] ss:leading-[4rem] leading-[0.85] uppercase select-none font-sans w-full text-center pp:text-left flex flex-col">
     
     {/* DESIGN */}
     <span className="bg-gradient-to-r relative right-56 pp:right-20 from-black to-blue-400 bg-clip-text text-transparent transition-all duration-300">

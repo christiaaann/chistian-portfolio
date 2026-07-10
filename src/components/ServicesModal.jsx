@@ -138,7 +138,7 @@ const checkForm = () => {
         {/* Background Decorative Ambient Glow inside the modal */}
       
         {/* Header */}
-        <div className=" flex flex-col justify-between">
+        <div className=" flex w-full flex-col justify-between">
           <div className=" flex flex-col gap-3 items-start w-full">
             <span className="text-2xl pp:text-lg text-blue-600 font-semibold">
               / Commission Setup
