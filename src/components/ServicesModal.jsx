@@ -140,13 +140,13 @@ const checkForm = () => {
         {/* Header */}
         <div className=" flex flex-col justify-between">
           <div className=" flex flex-col gap-3 items-start w-full">
-            <span className="text-2xl text-blue-600 font-semibold">
+            <span className="text-2xl pp:text-lg text-blue-600 font-semibold">
               / Commission Setup
             </span>
-            <h2 className="text-4xl font-semibold tracking-tight mt-1">
+            <h2 className="text-4xl font-semibold pp:text-lg tracking-tight mt-1">
               Start a Project
             </h2>
-            <p className="text-slate-400 text-nowrap">
+            <p className="text-slate-400 pp:text-sm">
               Tell me a little about what you're building. Let's make it real.
             </p>
           </div>

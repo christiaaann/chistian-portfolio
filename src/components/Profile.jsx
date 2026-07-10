@@ -219,7 +219,7 @@ const Profile = () => {
 
       <section>
                  {/* 4. INFINITE MARQUEE RUNNING TEXT BANNER */}
-      <div className="w-full bg-white border-y border-black/20 py-5 overflow-hidden relative z-20 flex select-none">
+      <div className="w-full bg-white border-y border-black/20 py-5 overflow-hidden relative flex select-none">
         
         {/* Isang solong DIV wrapper na gumagamit ng array repetition para sa seamless flow */}
         <div className="flex gap-12 animate-marquee whitespace-nowrap text-4xl font-semibold uppercase tracking-wider text-[#0f172a] w-max flex-shrink-0 pr-12">
