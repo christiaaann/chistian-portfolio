@@ -203,7 +203,7 @@ const checkForm = () => {
 
           <button
             onClick={onClose}
-            className=" absolute -right-9 -top-4 bg-blue-400 text-white rounded-full px-2 py-2"
+            className=" absolute pp:right-2 pp:top-3 -right-9 -top-4 bg-blue-400 text-white rounded-full px-2 py-2"
           >
             <X size={20} />
           </button>
@@ -255,15 +255,15 @@ const checkForm = () => {
               <div className="w-full">
                 <label className="text-xs flex font-semibold uppercase tracking-wider text-slate-500 mb-2">Project Type</label>
                 <div className="relative">
-                  <select onChange={checkForm} required name="project_type" className="w-full rounded-xl bg-gray-100 border border-white/10 bg px-4 py-3 text-sm text-neutral-500 outline-none focus:border-cyan-500/80 transition cursor-pointer appearance-none">
-                    <option>Select Project</option>
-                    <option>Web Development</option>
-                    <option>Video Editing</option>
-                    <option>Web Design</option>
-                    <option>UI/UX</option>
-                    <option>Capstone</option>
-                    <option>Virtual Assistance</option>
-                    <option>Payment Integration</option>
+                  <select defaultValue="" onChange={checkForm} required name="project_type" className="w-full rounded-xl bg-gray-100 border border-white/10 bg px-4 py-3 text-sm text-neutral-500 outline-none focus:border-cyan-500/80 transition cursor-pointer appearance-none">
+                    <option value="" disabled>Select Project</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Video Editing">Video Editing</option>
+                    <option value="Web Design">Web Design</option>
+                    <option value="UI/UX">Computer Services</option>
+                    <option value="Capstone">Capstone</option>
+                    <option value="Virtual Assistance">Virtual Assistance</option>
+                    <option value="AI Automations">Microsoft Office Installation & Setup</option>
                   </select>
                   <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400 text-xs">▼</div>
                 </div>
@@ -300,8 +300,12 @@ const checkForm = () => {
             {/* Glowing Action Button */}
           <button
             type="submit"
-             disabled={!isValid || loading}
-            className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-3.5 font-bold text-xs uppercase tracking-widest text-white transition hover:opacity-95 shadow-lg shadow-cyan-500/20 active:scale-[0.99] disabled:opacity-60"
+          className={`w-full flex items-center justify-center gap-2 rounded-xl py-3.5 font-bold text-xs uppercase tracking-widest text-white transition active:scale-[0.99]
+          ${
+            !isValid || loading
+              ? "bg-gray-400 cursor-not-allowed shadow-none"
+              : "bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-95 shadow-lg shadow-cyan-500/20"
+          }`}
           >
             {loading ? (
               <>
