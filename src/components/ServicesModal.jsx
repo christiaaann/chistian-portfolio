@@ -260,10 +260,10 @@ const checkForm = () => {
                     <option value="Web Development">Web Development</option>
                     <option value="Video Editing">Video Editing</option>
                     <option value="Web Design">Web Design</option>
-                    <option value="UI/UX">Computer Services</option>
+                    <option value="Computer Services">Computer Services</option>
                     <option value="Capstone">Capstone</option>
                     <option value="Virtual Assistance">Virtual Assistance</option>
-                    <option value="AI Automations">Microsoft Office Installation & Setup</option>
+                    <option value="Microsoft Office Installation & Setup">Microsoft Office Installation & Setup</option>
                   </select>
                   <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400 text-xs">▼</div>
                 </div>
