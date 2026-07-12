@@ -64,7 +64,7 @@ const checkForm = () => {
   return (
     <>
     {success && (
-  <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/30 backdrop-blur-sm">
+  <div className="fixed inset-0  z-30 flex items-center justify-center bg-black/30 backdrop-blur-sm">
     <div className="bg-white rounded-2xl p-6 shadow-xl flex flex-col items-center gap-3 animate-in fade-in zoom-in duration-200">
       
       <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">

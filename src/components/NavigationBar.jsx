@@ -6,7 +6,7 @@ const NavigationBar = ({ goProject, setShowEmailModal }) => {
   return (
     <>
       {/* NAVIGATION BAR - Fixed Top na may Glassmorphism */}
-      <nav className=" z-50 w-full border-b border-neutral-200/50 bg-white/70 backdrop-blur-md px-16 pp:px-8 ss:px-4 py-4 transition-all duration-300">
+      <nav className=" z-20 w-full border-b border-neutral-200/50 bg-white/70 backdrop-blur-md px-16 pp:px-8 ss:px-4 py-4 transition-all duration-300">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* LOGO */}

@@ -115,7 +115,7 @@ const Profile = () => {
      />
      
       {/* 3. HERO BODY WITH MONUMENTAL TYPOGRAPHY */}
-    <section className="relative flex justify-center z-10 max-w-7xl mx-auto w-full text-center px-4">
+    <section className="relative flex justify-center z- max-w-7xl mx-auto w-full text-center px-4">
         
 {/* Floating Crystals */}
 <div>
