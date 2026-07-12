@@ -7,7 +7,7 @@ const ServicesOffer = () => {
       title: 'WEB DEVELOPMENT',
       icon: <Code className="w-5 h-5 text-blue-600 stroke-[2.5]" />,
       description: 'High-performance React, Next.js & TanStack apps with smooth-as-silk interactions and pixel-perfect responsive layouts.',
-      tags: ['React', 'Next.js', 'TanStack', 'TypeScript', 'Tailwind CSS'],
+      tags: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Tailwind CSS'],
     },
     {
       title: 'APP DEVELOPMENT',
@@ -65,11 +65,11 @@ const ServicesOffer = () => {
         </div>
 
         {/* Horizontal Container */}
-        <div className="flex items-center gap-6 overflow-x-auto pb-10 pt-2 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
+        <div className="flex items-center gap-2 overflow-x-auto pb-10 pt-2 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
           {services.map((service, index) => (
             <div
               key={index}
-              className="snap-start flex-shrink-0 w-[600px] sm:w-[460px] md:w-[430px] bg-[#f8fafc]/60 border border-[#f1f5f9] rounded-[24px] p-9 flex flex-col justify-between min-h-[290px] hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.04)] hover:border-slate-200 transition-all duration-300 ease-in-out"
+              className="snap-start flex-shrink-0 w-[500px] shadow bg-white border border-[#f1f5f9] rounded-[24px] p-9 flex flex-col justify-between min-h-[290px] hover:bg-neutral-100 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.04)] hover:border-slate-200 transition-all duration-300 ease-in-out"
             >
               {/* Content Header Block */}
               <div>

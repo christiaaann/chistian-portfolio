@@ -116,12 +116,10 @@ const Profile = () => {
      />
      
       {/* 3. HERO BODY WITH MONUMENTAL TYPOGRAPHY */}
-<section className="relative flex justify-center z- max-w-7xl mt-10 mx-auto w-full text-center px-4">
+<section className="relative flex py-24  justify-center z- max-w-7xl mt-10 mx-auto w-full text-center px-4">
         
 {/* Floating Crystals */}
 <div>
-  
-
 <div
   className="absolute left-4 top-[35%] p-5 bg-gradient-to-br from-white/[0.12] to-white/[0.01] rounded-2xl border-t border-l border-white/30 border-b border-r border-white/10 backdrop-blur-2xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] shadow-blue-950/20 flex items-center justify-center animate-bounce"
   style={{ animationDuration: "4s" }}
