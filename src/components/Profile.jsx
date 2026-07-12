@@ -11,6 +11,7 @@ import { BsGithub, BsJavascript } from 'react-icons/bs'
 
 import ServicesModal from './ServicesModal'
 import NavigationBar from './NavigationBar'
+import ServicesOffer from './ServicesOffer'
 const Profile = () => {
 
   const navigate = useNavigate();
@@ -98,10 +99,10 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#f8fafc] text-[#090d16] font-sans overflow-x-hidden relative selection:bg-blue-500/20">
+    <div className="min-h-screen flex flex-col ju bg-[#f8fafc] text-[#090d16] font-sans overflow-x-hidden relative selection:bg-blue-500/20">
       
       {/* 1. GRID BACKGROUND & LALONG PINALAKING BLUE BLUR AURA */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_40%,#000_65%,transparent_100%)] z-0 pointer-events-none" />
+
       
       {/* Soft Giant Glowing Orbs */}
       <div className="absolute top-[15%] left-[5%] w-[650px] h-[650px] bg-blue-300/25 rounded-full blur-[140px] pointer-events-none z-0" />
@@ -115,7 +116,7 @@ const Profile = () => {
      />
      
       {/* 3. HERO BODY WITH MONUMENTAL TYPOGRAPHY */}
-    <section className="relative flex justify-center z- max-w-7xl mx-auto w-full text-center px-4">
+<section className="relative flex justify-center z- max-w-7xl mt-10 mx-auto w-full text-center px-4">
         
 {/* Floating Crystals */}
 <div>
@@ -217,25 +218,9 @@ const Profile = () => {
     </div>
       </section>
 
-      <section>
-                 {/* 4. INFINITE MARQUEE RUNNING TEXT BANNER */}
-      <div className="w-full bg-white border-y border-black/20 py-5 overflow-hidden relative flex select-none">
-        
-        {/* Isang solong DIV wrapper na gumagamit ng array repetition para sa seamless flow */}
-        <div className="flex gap-12 animate-marquee whitespace-nowrap text-4xl font-semibold uppercase tracking-wider text-[#0f172a] w-max flex-shrink-0 pr-12">
-          {[...Array(4)].map((_, i) => (
-            <React.Fragment key={i}>
-              <span className="flex items-center gap-3">Web Development <span className="text-blue-600 text-lg">•</span></span>
-              <span className="flex items-center gap-3">Database & Architecture<span className="text-blue-600 text-lg">•</span></span>
-              <span className="flex items-center gap-3">UI/UX<span className="text-blue-600 text-lg">•</span></span>
-              <span className="flex items-center gap-3">Video Editing <span className="text-blue-600 text-lg">•</span></span>
-              <span className="flex items-center gap-3">Virtual Assistance <span className="text-blue-600 text-lg">•</span></span>
-            </React.Fragment>
-          ))}
-        </div>
+      
+        <ServicesOffer />
 
-      </div>
-      </section>
 
       {/* EMAIL OVERLAY & MODAL */}
       {showEmailModal && !showSuccess && (

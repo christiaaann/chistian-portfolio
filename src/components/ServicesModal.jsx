@@ -253,16 +253,17 @@ const checkForm = () => {
 
             <div className="flex gap-2">
               <div className="w-full">
-                <label className="text-xs flex font-semibold uppercase tracking-wider text-slate-500 mb-2">Project Type</label>
+                <label className="text-xs flex font-semibold uppercase tracking-wider text-slate-500 mb-2">Services</label>
                 <div className="relative">
                   <select defaultValue="" onChange={checkForm} required name="project_type" className="w-full rounded-xl bg-gray-100 border border-white/10 bg px-4 py-3 text-sm text-neutral-500 outline-none focus:border-cyan-500/80 transition cursor-pointer appearance-none">
-                    <option value="" disabled>Select Project</option>
+                    <option value="" disabled>Select Services</option>
                     <option value="Web Development">Web Development</option>
+                    <option value="Computer Setup">Computer Setup</option>
                     <option value="Video Editing">Video Editing</option>
                     <option value="Web Design">Web Design</option>
-                    <option value="Computer Services">Computer Services</option>
+                    <option value="Computer Services">Laptop Cleaning</option>
                     <option value="Capstone">Capstone</option>
-                    <option value="Virtual Assistance">Virtual Assistance</option>
+                    <option value="Virtual Assistance">Virtual Assistant</option>
                     <option value="Microsoft Office Installation & Setup">Microsoft Office Installation & Setup</option>
                   </select>
                   <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-400 text-xs">▼</div>
