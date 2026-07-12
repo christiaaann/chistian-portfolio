@@ -258,6 +258,7 @@ const checkForm = () => {
                   <select defaultValue="" onChange={checkForm} required name="project_type" className="w-full rounded-xl bg-gray-100 border border-white/10 bg px-4 py-3 text-sm text-neutral-500 outline-none focus:border-cyan-500/80 transition cursor-pointer appearance-none">
                     <option value="" disabled>Select Services</option>
                     <option value="Web Development">Web Development</option>
+                     <option value="App Development">App Development</option>
                     <option value="Computer Setup">Computer Setup</option>
                     <option value="Video Editing">Video Editing</option>
                     <option value="Web Design">Web Design</option>
