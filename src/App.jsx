@@ -6,11 +6,16 @@ import Resume from './components/Resume'
 function App() {
 
   return (
-   <Routes>
-    <Route path='/' element={<Home/>}/>
-    <Route path='/goProject' element={<MyProject/>}/>
-    <Route path='/resume' element={<Resume/>} />
-   </Routes>
+    <>
+  <main>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/goProject' element={<MyProject/>}/>
+      <Route path='/resume' element={<Resume/>} />
+   </Routes>      
+  </main>
+    </>
+ 
   );
 }
 

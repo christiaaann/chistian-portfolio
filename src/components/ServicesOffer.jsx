@@ -35,7 +35,7 @@ const ServicesOffer = () => {
                     <span className="flex items-center gap-3">Database & Architecture<span className="text-blue-600 text-lg">•</span></span>
                     <span className="flex items-center gap-3">UI/UX<span className="text-blue-600 text-lg">•</span></span>
                     <span className="flex items-center gap-3">Video Editing <span className="text-blue-600 text-lg">•</span></span>
-                    <span className="flex items-center gap-3">Virtual Assistance <span className="text-blue-600 text-lg">•</span></span>
+                    <span className="flex items-center gap-3">Virtual Assistant <span className="text-blue-600 text-lg">•</span></span>
                   </React.Fragment>
                 ))}
               </div>

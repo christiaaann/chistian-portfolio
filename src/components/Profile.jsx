@@ -109,12 +109,12 @@ const Profile = () => {
       <div className="absolute top-[10%] right-[0%] w-[700px] h-[700px] bg-sky-200/35 rounded-full blur-[160px] pointer-events-none z-0" />
       
 
-      {/*Navigation Bar  */}
-     <NavigationBar
+    {/*Navigation Bar  */}
+     {/* <NavigationBar
      goProject={goProject}
      setShowEmailModal={() => setShowEmailModal(true)}    
      />
-     
+      */}
       {/* 3. HERO BODY WITH MONUMENTAL TYPOGRAPHY */}
 <section className="relative flex py-24  justify-center z- max-w-7xl mt-10 mx-auto w-full text-center px-4">
         
@@ -191,7 +191,7 @@ const Profile = () => {
             <span>Start a Project</span>
           </button>
 
-          <ServicesModal
+        <ServicesModal
           isOpen={ismodalOpen}
           onClose={() =>setIsModalOpen(false)}
           />

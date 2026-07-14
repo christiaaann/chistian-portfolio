@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react'
+import data from '../assets/data.gif'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+
 import Profile from '../components/Profile'
+import NavigationBar from '../components/NavigationBar'
 import AboutMe from '../components/AboutMe'
 import Experience from '../components/Experience'
 import School from '../components/School'
-import data from '../assets/data.gif'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import RecentProject from '../components/RecentProject'
 const Home = () => {
    
   const [showPopup, setShowPopup] = useState(false);
@@ -23,8 +26,7 @@ const Home = () => {
   },[]);
   return (
    <>
-   <div className='bg-black scroll-smooth from-slate-900 min-h-screen overflow-hidden   text-white'>
-      {showPopup && (
+     {showPopup && (
       <div className=' fixed z-50 flex justify-center items-center inset-0 '>
         <div className=' backdrop-blur-md border border-white/10 bg-gradient-to-br to-white/70 from-white/5 shadow-lg p-6 max-w-sm h-[18rem] relative rounded-2xl w-full'>
           {/* <img className='w-32 h-32 object-contain drop-shadow-xl absolute -top-12 left-1/2 -translate-x-1/2' src={data} alt="" /> */}
@@ -42,15 +44,11 @@ const Home = () => {
         </div>
       </div>
 )}
-     <div className=''>
-       <Profile/>
-       <div className='flex gap-2 pp:flex-wrap mt-3'>
-        {/* <AboutMe/>
-        <Experience/>  */}
-       </div>
-      {/* <School/> */}
-     </div>
-   </div>
+        <NavigationBar />
+        <Profile />
+        <AboutMe />
+        <RecentProject />
+
    </>
   )
 }
