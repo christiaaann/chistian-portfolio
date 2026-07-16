@@ -8,6 +8,7 @@ import AboutMe from '../components/AboutMe'
 import Experience from '../components/Experience'
 import School from '../components/School'
 import RecentProject from '../components/RecentProject'
+import Footer from '../components/Footer'
 const Home = () => {
    
   const [showPopup, setShowPopup] = useState(false);
@@ -48,6 +49,8 @@ const Home = () => {
         <Profile />
         <AboutMe />
         <RecentProject />
+
+        <Footer/>
 
    </>
   )
