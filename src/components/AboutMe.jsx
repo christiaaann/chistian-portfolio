@@ -59,12 +59,12 @@ const AboutMe = () => {
   ];
 
   return (
-    <section className="w-full bg-[#FAFCFF] py-20 px-6 text-slate-900">
-      <div className="max-w-7xl mx-auto grid grid-cols-12 gap-12 pp:grid-cols-1 pp:gap-8">
+    <section className="w-full  py-20 px-6 t">
+      <div className="max-w-6xl mx-auto gri grid-cols-12 gap-12 pp:grid-cols-1 pp:gap-8">
         
         {/* Left Column: Technology Stack */}
         <div className="col-span-8 pp:col-span-1 space-y-8">
-          <h2 className="text-4xl font-black tracking-tight text-slate-950 uppercase ss:text-2xl xx:text-3xl">
+          <h2 className="text-4xl font-black tracking-tight text- uppercase ss:text-2xl xx:text-3xl">
             Technology Stack
           </h2>
           
@@ -72,12 +72,12 @@ const AboutMe = () => {
             {techStack.map((group, index) => (
               <div 
                 key={index} 
-                className="bg-white shadow border border-slate-100/80 rounded-3xl p-8 space-y-5 ss:p-6"
+                className="bg-black shadow border border-neutral-800 rounded-3xl p-8 space-y-5 ss:p-6"
               >
                 {/* Category Header */}
                 <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                  <span className="text-xs font-extrabold tracking-widest text-slate-950 uppercase">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white"></span>
+                  <span className="text-xs tracking-widest uppercase">
                     {group.category}
                   </span>
                 </div>
@@ -87,7 +87,7 @@ const AboutMe = () => {
                   {group.skills.map((skill, idx) => (
                     <span 
                       key={idx} 
-                      className="px-4 py-2 text-xs font-medium text-slate-600 bg-[#F4F8FA]/60 border border-slate-100/60 rounded-full hover:bg-white hover:shadow-sm hover:border-blue-200 transition-all duration-200"
+                      className="px-4 py-2 text-xs font-medium  border border-neutral-800 rounded-full hover:bg-white hover:shadow-sm hover:border-blue-200 transition-all duration-200"
                     >
                       {skill}
                     </span>
@@ -99,7 +99,7 @@ const AboutMe = () => {
         </div>
 
         {/* Right Column: Service Notes */}
-        <div className="col-span-4 pp:col-span-1 space-y-8">
+        {/* <div className="col-span-4 pp:col-span-1 space-y-8">
           <h2 className="text-4xl font-black tracking-tight text-slate-950 uppercase ss:text-2xl xx:text-3xl">
             Service Notes
           </h2>
@@ -110,7 +110,7 @@ const AboutMe = () => {
                 key={index} 
                 className="bg-white border border-slate-100/80 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.015)] flex items-start space-x-5 ss:p-6"
               >
-                {/* Custom Icon Wrapper */}
+
                 <div className="p-3 bg-blue-50/50 rounded-2xl flex-shrink-0">
                   {note.icon}
                 </div>
@@ -126,7 +126,7 @@ const AboutMe = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

@@ -10,7 +10,7 @@ import { FiFigma } from 'react-icons/fi'
 import { BsGithub, BsJavascript } from 'react-icons/bs'
 
 import ServicesModal from './ServicesModal'
-import NavigationBar from './NavigationBar'
+// import NavigationBar from './NavigationBar'
 import ServicesOffer from './ServicesOffer'
 const Profile = () => {
 

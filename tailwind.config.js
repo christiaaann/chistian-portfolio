@@ -23,6 +23,12 @@ export default {
        'xx': {'raw': '(min-width:312px) and (max-width: 480px)'},
        'ss': {'raw': '(min-width:312px) and (max-width: 414px)'},
     },
+    fontFamily: {
+        // Bebas Neue o Anton para sa condensed bold title look
+        'heading': ['"Bebas Neue"', 'Impact', 'sans-serif'],
+        'sans': ['Inter', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
   },
   plugins: [],
 }

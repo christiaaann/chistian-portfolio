@@ -22,7 +22,7 @@ const RecentProject = () => {
       tag: "School Management",
       image: MYRTLE,
       gradient: "from-emerald-400/20 to-teal-600/20",
-      link: "#"
+      link: "https://myrtlechristianschool.com/"
     },
     {
       id: 3,
@@ -36,16 +36,16 @@ const RecentProject = () => {
   ];
 
   return (
-    <section className="w-full bg-[#FAFCFF] py-20 px-6 text-slate-900">
+    <section className="w-full  py-20 px-6 ">
       <div className="max-w-7xl mx-auto grid grid-cols-12 gap-12 pp:grid-cols-1 pp:gap-8">
         
         {/* Left Side: Sticky Headers & Intro */}
         <div className="col-span-5 pp:col-span-1 space-y-6 h-fit sticky top-10 pp:relative pp:top-0">
-          <div className="text-xs font-bold tracking-widest text-blue-500 uppercase">
+          <div className="text-xs font-bold tracking-widest uppercase">
             / Selected Work
           </div>
           
-          <h2 className="text-5xl font-black tracking-tight text-slate-950 uppercase leading-none ss:text-3xl xx:text-4xl">
+          <h2 className="text-5xl font-black tracking-tight uppercase leading-none ss:text-3xl xx:text-4xl">
             Recent<br />Projects.
           </h2>
           
@@ -66,6 +66,7 @@ const RecentProject = () => {
         <div className="col-span-7 pp:col-span-1 space-y-6">
           {projects.map((project) => (
             <a
+              target='_blank'a
               key={project.id}
               href={project.link}
               className="block relative w-full aspect-[2/1] rounded-3xl overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-[1.01]"

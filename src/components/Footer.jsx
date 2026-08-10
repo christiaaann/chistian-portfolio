@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-slate-600 py-12 px-6 border-t border-slate-100 font-sans">
+    <footer className=" py-12 px-6 border-t border-slate-900 font-sans">
       {/* 
         Default: flex-row (Desktop)
         pp (max-width: 838px): flex-col (Mobile & Tablet stack)
@@ -11,7 +11,7 @@ const Footer = () => {
         
         {/* Brand Section */}
         <div className="flex flex-col gap-3 flex-1 min-w-[250px]">
-          <h2 className="text-xl font-bold   text-slate-900 tracking-wide">
+          <h2 className="text-xl font-bold  tracking-wide">
             Christian Pretista Heje
           </h2>
           <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
@@ -21,7 +21,7 @@ const Footer = () => {
 
         {/* Contact Info Section */}
         <div className="flex flex-col gap-4 flex-1 min-w-[250px]">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Contact Details</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider ">Contact Details</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,7 +51,7 @@ const Footer = () => {
 
         {/* Social Links Section */}
         <div className="flex flex-col gap-4 flex-1 min-w-[200px]">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900">Connect</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-wider">Connect</h3>
           <p className="text-sm text-slate-500">Find me on my social media accounts:</p>
           <div className="flex gap-3">
             {/* Facebook */}
@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-slate-100 flex flex-row pp:flex-col justify-between items-center pp:items-start gap-4 text-xs text-slate-400">
+      <div className="max-w-6xl mx-auto mt-12 pt-6 border-t border-slate-900 flex flex-row pp:flex-col justify-between items-center pp:items-start gap-4 text-xs text-slate-400">
         <p>&copy; {new Date().getFullYear()} Christian Heje. All rights reserved.</p>
         <p className="hover:text-slate-600 transition">Designed with precision</p>
       </div>
