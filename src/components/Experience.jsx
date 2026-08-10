@@ -61,10 +61,10 @@ const Experience = () => {
 
           {/* Right Details */}
           <div className="col-span-7 pp:col-span-1 flex flex-col justify-center py-2">
-            <div className="flex items-center gap-2 text-xs tt:text-[11px] font-mono text-neutral-400 uppercase mb-3">
+            {/* <div className="flex items-center gap-2 text-xs tt:text-[11px] font-mono text-neutral-400 uppercase mb-3">
               <span>▷</span>
               <span>FEATURED EPISODE</span>
-            </div>
+            </div> */}
 
             <h3 className="font-heading text-xl pp:text-lg tt:text-base uppercase tracking-wide text-white mb-3">
               BUILDING SYSTEM AT MYRTLE CHRISTIAN SCHOOL INC.
@@ -76,7 +76,8 @@ const Experience = () => {
 
             <div>
               <a 
-                href="#watch-now" 
+                target='_blank'
+                href="https://myrtlechristianschool.com/" 
                 className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-white hover:text-neutral-300 uppercase transition-colors"
               >
                 LIVE DEMO <span>→</span>
@@ -85,7 +86,7 @@ const Experience = () => {
           </div>
                 
 
-                          <div className="col-span-5 pp:col-span-1 bg-[#0a0a0a] p-3 flex items-center justify-center">
+            <div className="col-span-5 pp:col-span-1 bg-[#0a0a0a] p-3 flex items-center justify-center">
             <div 
               className="relative w-full h-64  aspect-square bg-neutral-900 overflow-hidden"
               style={{
@@ -102,17 +103,17 @@ const Experience = () => {
 
           {/* Right Details */}
           <div className="col-span-7 pp:col-span-1 flex flex-col justify-center py-2">
-            <div className="flex items-center gap-2 text-xs tt:text-[11px] font-mono text-neutral-400 uppercase mb-3">
+            {/* <div className="flex items-center gap-2 text-xs tt:text-[11px] font-mono text-neutral-400 uppercase mb-3">
               <span>▷</span>
               <span>FEATURED EPISODE</span>
-            </div>
+            </div> */}
 
             <h3 className="font-heading text-xl pp:text-lg tt:text-base uppercase tracking-wide text-white mb-3">
               IT SUPPORT
             </h3>
 
             <p className="text-neutral-400 text-xs leading-relaxed mb-8 pp:mb-5 max-w-lg">
-              A conversation with Jed Tan on building a career and creating opportunities while young in the AI era — from learning in public to launching technology ventures.
+             Assembled, maintained, and upgraded 15+ computers by installing SSDs, troubleshooting hardware software issues, and configuring operating systems.
             </p>
 
             <div>

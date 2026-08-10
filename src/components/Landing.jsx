@@ -34,7 +34,7 @@ const Landing = () => {
 
         {/* Description Paragraph */}
         <p className="text-neutral-400 text-lg md:text-xl max-w-2xl font-normal mb-10 leading-relaxed tt:text-base xx:text-sm">
-          Building in public through podcast, blog, and ventures across business and tech.
+          BS Information Technology Graduate | Aspiring IT Professional
         </p>
 
         {/* CTA Buttons */}
