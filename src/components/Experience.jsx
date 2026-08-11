@@ -32,7 +32,7 @@ const Experience = () => {
 
         {/* Title */}
         <h2 className="font-heading text-4xl pp:text-3xl tt:text-2xl xx:text-xl  tracking-wide uppercase text-white mb-4">
-         AIMBLE IT SOLUTIONS / Web Developer | IT Support ( Intern )
+         IT Intern – Web Development & Technical Support
         </h2>
 
         {/* Description */}
@@ -109,7 +109,7 @@ const Experience = () => {
             </div> */}
 
             <h3 className="font-heading text-xl pp:text-lg tt:text-base uppercase tracking-wide text-white mb-3">
-              IT SUPPORT
+              Technical Support
             </h3>
 
             <p className="text-neutral-400 text-xs leading-relaxed mb-8 pp:mb-5 max-w-lg">

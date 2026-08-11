@@ -16,11 +16,11 @@ const AboutMe = () => {
     },
     {
       category: "DATABASE",
-      skills: ["Firebase", "Firestore"]
+      skills: ["Firebase", "Firestore", "MySQL"]
     },
     {
       category: "VIDEO EDITING",
-      skills: ["Premiere Pro", "After Effects", "CapCut", "DaVinci Resolve"]
+      skills: ["Premiere Pro", "CapCut"]
     },
     {
       category: "DEVOPS & TOOLS",

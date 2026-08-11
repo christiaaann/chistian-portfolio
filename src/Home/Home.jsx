@@ -48,7 +48,9 @@ const Home = () => {
 )}
         {/* <NavigationBar /> */}
         {/* <Profile /> */}
+           
         <Landing />
+       <NavigationBar />
         <Experience />
         <AboutMe />
         <RecentProject />
